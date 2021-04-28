@@ -31,7 +31,7 @@ MAJOR, MINOR = GetXBMCVersion()
 FRODO        = (MAJOR == 12) and (MINOR < 9)
 
 
-ADDONID = 'plugin.audio.thunderstruck'
+ADDONID = 'plugin.audio.napster'
 ADDON   = xbmcaddon.Addon(ADDONID)
 TITLE   = ADDON.getAddonInfo('name')
 VERSION = ADDON.getAddonInfo('version')
@@ -145,7 +145,7 @@ except:
 
 
 
-ADDONID    = 'plugin.audio.thunderstruck'
+ADDONID    = 'plugin.audio.napster'
 ADDON      =  xbmcaddon.Addon(ADDONID)
 HOME       =  xbmc.translatePath(ADDON.getAddonInfo('path'))
 PROFILE    =  xbmc.translatePath(ADDON.getAddonInfo('profile'))
@@ -194,7 +194,7 @@ def verifyFileSize(filename):
     if not filename:
         return True
 
-    ADDONID = 'plugin.audio.thunderstruck'
+    ADDONID = 'plugin.audio.napster'
     ADDON   =  xbmcaddon.Addon(ADDONID)
     precache = int(ADDON.getSetting('pre-cache').replace('K', ''))
 
@@ -433,7 +433,7 @@ def fetchNext(posn):
 
     log('URL = %s' % url)
 
-    if not url.startswith('plugin://plugin.audio.thunderstruck'):
+    if not url.startswith('plugin://plugin.audio.napster'):
         return
 
     log('Next Position    = %d' % posn)

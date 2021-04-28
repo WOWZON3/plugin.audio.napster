@@ -28,13 +28,13 @@ QUEUE_SONGS = settings.default_queue()
 QUEUE_ALBUMS = settings.default_queue_album()
 DOWNLOAD_LIST = settings.download_list()
 FOLDERSTRUCTURE = settings.folder_structure()
-fanart = xbmc.translatePath(os.path.join('special://home/addons/plugin.audio.thunderstruck', 'fanart.jpg'))
-art = xbmc.translatePath(os.path.join('special://home/addons/plugin.audio.thunderstruck', 'art')) + '/'
-artgenre = xbmc.translatePath(os.path.join('special://home/addons/plugin.audio.thunderstruck/art', 'genre')) + '/'
-artbillboard = xbmc.translatePath(os.path.join('special://home/addons/plugin.audio.thunderstruck/art', 'billboard')) + '/'
-urllist = xbmc.translatePath(os.path.join('special://home/addons/plugin.audio.thunderstruck', 'lists', 'mp3url.list'))
+fanart = xbmc.translatePath(os.path.join('special://home/addons/plugin.audio.napster', 'fanart.jpg'))
+art = xbmc.translatePath(os.path.join('special://home/addons/plugin.audio.napster', 'art')) + '/'
+artgenre = xbmc.translatePath(os.path.join('special://home/addons/plugin.audio.napster/art', 'genre')) + '/'
+artbillboard = xbmc.translatePath(os.path.join('special://home/addons/plugin.audio.napster/art', 'billboard')) + '/'
+urllist = xbmc.translatePath(os.path.join('special://home/addons/plugin.audio.napster', 'lists', 'mp3url.list'))
 audio_fanart = ""
-iconart = xbmc.translatePath(os.path.join('special://home/addons/plugin.audio.thunderstruck', 'icon.png'))
+iconart = xbmc.translatePath(os.path.join('special://home/addons/plugin.audio.napster', 'icon.png'))
 download_lock = os.path.join(MUSIC_DIR, 'downloading.txt')
 xbmc_version=xbmc.getInfoLabel("System.BuildVersion")[:4]
 
@@ -216,7 +216,7 @@ def all_artists(name, url):
     pgnum = int(url[pgnumf:]) + 1
     nxtpgurl = url[:pgnumf]
     nxtpgurl = "%s%s" % (nxtpgurl, pgnum)
-    addDir('>> Next page',nxtpgurl,31,xbmc.translatePath(os.path.join('special://home/addons/plugin.audio.thunderstruck', 'art', 'nextpage.jpg')),'')
+    addDir('>> Next page',nxtpgurl,31,xbmc.translatePath(os.path.join('special://home/addons/plugin.audio.napster', 'art', 'nextpage.jpg')),'')
     setView('movies', 'default')
 
 def sub_dir(name, url, icon):
@@ -244,7 +244,7 @@ def all_genres(name, url):
     all_genres = re.compile('<li class="small_list__item"><a class="small_list__link" href="(.+?)">(.+?)</a></li>').findall(link)
     for url1, title in all_genres:
         addDir(title.replace('&amp;', 'and'),'http://musicmp3.ru' + url1,22,'http://www.pearljamlive.com/images/pic_home.jpg','')
-    addDir('>> Next page',nxtpgurl,13,xbmc.translatePath(os.path.join('special://home/addons/plugin.audio.thunderstruck', 'art', 'nextpage.jpg')))
+    addDir('>> Next page',nxtpgurl,13,xbmc.translatePath(os.path.join('special://home/addons/plugin.audio.napster', 'art', 'nextpage.jpg')))
 
 def genre_sub_dir(name, url, icon):
     link = GET_url(url)
@@ -280,7 +280,7 @@ def compilations_list(name, url, iconimage, page):
     for url,d1,iconimage,cl,url2,title,cl,artist,year,prc in match:
         url='http://www.goldenmp3.ru'+url
         addDir(title.replace('&amp;', 'and'),url,5,iconimage,'albums')
-    addDir('>> Next page',nxtpgurl,401,xbmc.translatePath(os.path.join('special://home/addons/plugin.audio.thunderstruck', 'art', 'nextpage.jpg')),str(nextpage))
+    addDir('>> Next page',nxtpgurl,401,xbmc.translatePath(os.path.join('special://home/addons/plugin.audio.napster', 'art', 'nextpage.jpg')),str(nextpage))
     setView('movies', 'album')
 
 def search(name, url):
@@ -358,7 +358,7 @@ def album_list(name, url):
     pgnum = int(url[pgnumf:]) + 1
     nxtpgurl = url[:pgnumf]
     nxtpgurl = "%s%s" % (nxtpgurl, pgnum)
-    addDir('>> Next page',nxtpgurl,15,xbmc.translatePath(os.path.join('special://home/addons/plugin.audio.thunderstruck', 'art', 'nextpage.jpg')),'')
+    addDir('>> Next page',nxtpgurl,15,xbmc.translatePath(os.path.join('special://home/addons/plugin.audio.napster', 'art', 'nextpage.jpg')),'')
     setView('movies', 'album')
 
 def albums(name, url):
@@ -843,7 +843,7 @@ def myfreemp3(url):
 def myfreemp3_artists(url):
     alphabet =  ['0..9', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U','V', 'W', 'X', 'Y', 'Z']
     for a in alphabet:
-        addDir(a, 'http://www.myfreemp3.eu/artists/%s/' % a.lower(),705,xbmc.translatePath(os.path.join('special://home/addons/plugin.audio.thunderstruck', 'art', a + '.png')), '')
+        addDir(a, 'http://www.myfreemp3.eu/artists/%s/' % a.lower(),705,xbmc.translatePath(os.path.join('special://home/addons/plugin.audio.napster', 'art', a + '.png')), '')
 
 def myfreemp3_artislist(url):
     link = open_url(url)

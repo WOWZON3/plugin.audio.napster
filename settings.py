@@ -1,8 +1,8 @@
 import xbmc, xbmcaddon, xbmcgui, xbmcplugin
 import os
 
-ADDON = xbmcaddon.Addon(id='plugin.audio.thunderstruck')
-DATA_PATH = os.path.join(xbmc.translatePath('special://profile/addon_data/plugin.audio.thunderstruck'), '')
+ADDON = xbmcaddon.Addon(id='plugin.audio.napster')
+DATA_PATH = os.path.join(xbmc.translatePath('special://profile/addon_data/plugin.audio.napster'), '')
 
 def cookie_jar():
     return create_file(DATA_PATH, "cookiejar.lwp")
